@@ -89,6 +89,8 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
+  console.error("🔥 ERROR:", err);   // 👈 ADD THIS LINE
+
   const message = err.message || "Something went wrong!";
   req.flash("error", message);
   res.redirect("/listings");
